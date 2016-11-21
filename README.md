@@ -74,26 +74,12 @@
 
 16. **Audio支持**  
   HTML5提供了`<audio>`标签，你不需要再按照第三方插件来渲染音频，大多数现代浏览器提供了对于HTML5 Audio的支持，
-  不过目前仍旧需要提供一些兼容处理，如  
-    ```<audio autoplay controls>
-    <source src="file.ogg" /><!–FF–>
-    <source src="file.mp3" /><!–Webkit–>
-    <a href="file.mp3">Download this file.</a>
-    </audio>
-    ````
-----
+  不过目前仍旧需要提供一些兼容处理。
+    
 
 17. **Video支持**  
   和Audio很像，`<video>`标签提供了对于video的支持，由于HTML5文档并没有给video指定一个特定的编码，所以浏览器去决定要支持哪些编码，
-  导致了很多不一致。Safari和IE支持H.264编码的格式，Firefox和Opera支持Theora和Vorbis 编码的格式，当使用HTML5 video的时候，
-  你必须都提供：  
-    `<video controls preload>` 
-    `<source src=”cohagenPhoneCall.ogv” type=”video/ogg; codecs=’vorbis, theora’” /> `
-    `<source src=”cohagenPhoneCall.mp4″ type=”video/mp4; ’codecs=’avc1.42E01E, mp4a.40.2′” /> `
-    `<p> Your browser is old. <a href=”cohagenPhoneCall.mp4″>Download this video instead.</a> </p> `
-    `</video> `
-
-----
+  导致了很多不一致。Safari和IE支持H.264编码的格式，Firefox和Opera支持Theora和Vorbis 编码的格式。
 
 18. **预加载视频**  
   preload属性就像它的字面意思那么简单，你需要决定是否需要在页面加载的时候去预加载视频  
@@ -110,7 +96,6 @@
     `<button type="submit">Go </button>`
     `</form>` 
 
-----
 
 21. **检测属性支持**  
   除了Modernizr之外我们还可以通过javascript简单地检测一些属性是否支持，如：  
