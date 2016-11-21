@@ -90,10 +90,10 @@
   
 20. **正则表达式**  
   由于pattern属性，我们可以在你的markup里面直接使用正则表达式了  
-    `<form action="" method="post">`
-    `<label for="username">Create a Username: </label>`
-    `<input type="text" name="username" id="username" placeholder="4 <> 10" pattern="[A-Za-z]{4,10}" autofocus required>`
-    `<button type="submit">Go </button>`
+    `<form action="" method="post">`  
+    `<label for="username">Create a Username: </label>`  
+    `<input type="text" name="username" id="username" placeholder="4 <> 10" pattern="[A-Za-z]{4,10}" autofocus required>`  
+    `<button type="submit">Go </button>`  
     `</form>` 
 
 
@@ -108,11 +108,8 @@
 ----
 
 22. **Mark元素**  
-  把`<mark>`元素看做是高亮的作用，当我选择一段文字的时候，javascript对于HTML的markup效果应该是这样的：  
-    ```<h3> Search Results </h3> 
-    <p> They were interrupted, just after Quato said, <mark>”Open your Mind”</mark>. </p> 
-    ````
-----
+  把`<mark>`元素看做是高亮的作用。
+   
 
 
 
