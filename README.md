@@ -104,12 +104,12 @@
   
 20. **正则表达式**  
   由于pattern属性，我们可以在你的markup里面直接使用正则表达式了  
-    ```<form action="" method="post"> 
-    <label for="username">Create a Username: </label> 
-    <input type="text" name="username" id="username" placeholder="4 <> 10" pattern="[A-Za-z]{4,10}" autofocus required> 
-    <button type="submit">Go </button> 
-    </form> 
-    ````
+    `<form action="" method="post">`
+    `<label for="username">Create a Username: </label>`
+    `<input type="text" name="username" id="username" placeholder="4 <> 10" pattern="[A-Za-z]{4,10}" autofocus required>`
+    `<button type="submit">Go </button>`
+    `</form>` 
+
 ----
 
 21. **检测属性支持**  
