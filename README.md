@@ -75,23 +75,25 @@
 16. **Audio支持**  
   HTML5提供了`<audio>`标签，你不需要再按照第三方插件来渲染音频，大多数现代浏览器提供了对于HTML5 Audio的支持，
   不过目前仍旧需要提供一些兼容处理，如  
-    ```<audio autoplay controls> 
-    <source src="file.ogg" /><!–FF–> 
-    <source src="file.mp3" /><!–Webkit–> 
-    <a href="file.mp3">Download this file.</a> 
-    </audio> 
+    ```<audio autoplay controls>
+    <source src="file.ogg" /><!–FF–>
+    <source src="file.mp3" /><!–Webkit–>
+    <a href="file.mp3">Download this file.</a>
+    </audio>
     ````
+----
 
 17. **Video支持**  
   和Audio很像，`<video>`标签提供了对于video的支持，由于HTML5文档并没有给video指定一个特定的编码，所以浏览器去决定要支持哪些编码，
   导致了很多不一致。Safari和IE支持H.264编码的格式，Firefox和Opera支持Theora和Vorbis 编码的格式，当使用HTML5 video的时候，
   你必须都提供：  
-    ```<video controls preload> 
-    <source src=”cohagenPhoneCall.ogv” type=”video/ogg; codecs=’vorbis, theora’” /> 
-    <source src=”cohagenPhoneCall.mp4″ type=”video/mp4; ’codecs=’avc1.42E01E, mp4a.40.2′” /> 
-    <p> Your browser is old. <a href=”cohagenPhoneCall.mp4″>Download this video instead.</a> </p> 
-    </video> 
-    ````    
+    `<video controls preload>` 
+    `<source src=”cohagenPhoneCall.ogv” type=”video/ogg; codecs=’vorbis, theora’” /> `
+    `<source src=”cohagenPhoneCall.mp4″ type=”video/mp4; ’codecs=’avc1.42E01E, mp4a.40.2′” /> `
+    `<p> Your browser is old. <a href=”cohagenPhoneCall.mp4″>Download this video instead.</a> </p> `
+    `</video> `
+
+----
 
 18. **预加载视频**  
   preload属性就像它的字面意思那么简单，你需要决定是否需要在页面加载的时候去预加载视频  
@@ -102,27 +104,30 @@
   
 20. **正则表达式**  
   由于pattern属性，我们可以在你的markup里面直接使用正则表达式了  
-    ```<form action="" method=”post”> 
-    <label for=”username”>Create a Username: </label> 
-    <input type=”text” name=”username” id=”username” placeholder=”4 <> 10″ pattern=”[A-Za-z]{4,10}” autofocus required> 
-    <button type=”submit”>Go </button> 
+    ```<form action="" method="post"> 
+    <label for="username">Create a Username: </label> 
+    <input type="text" name="username" id="username" placeholder="4 <> 10" pattern="[A-Za-z]{4,10}" autofocus required> 
+    <button type="submit">Go </button> 
     </form> 
     ````
+----
 
 21. **检测属性支持**  
   除了Modernizr之外我们还可以通过javascript简单地检测一些属性是否支持，如：  
     ```<script> 
-    if (!’pattern’ in document.createElement(’input’) ) { 
+    if (!'pattern' in document.createElement('input') ) { 
     // do client/server side validation 
     } 
     </script> 
     ````
-    
+----
+
 22. **Mark元素**  
   把`<mark>`元素看做是高亮的作用，当我选择一段文字的时候，javascript对于HTML的markup效果应该是这样的：  
     ```<h3> Search Results </h3> 
     <p> They were interrupted, just after Quato said, <mark>”Open your Mind”</mark>. </p> 
     ````
+----
 
 
 
