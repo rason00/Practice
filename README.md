@@ -18,12 +18,12 @@
 3. **重新定义的small**  
   `<small>`已经被重新定义，现在被用来表示小的排版，如网站底部的版权声明。
 
-4. **去掉link和script标签里面的type熟悉**  
+4. **去掉link和script标签里面的type属性**  
 
 5. **加/不加括号**  
-  HTML5没有严格的要求属性必须加引号，闭合不闭合，单建议加上引号和闭合标签。
+  HTML5没有严格的要求属性必须加引号，闭合不闭合，但建议加上引号和闭合标签。
 
-6. **contenteditable熟悉，让你的内容可编辑**
+6. **contenteditable属性，让内容可编辑**
 
 7. **Email Inputs**  
   如果我们给Input的type设置为email，浏览器就会验证这个输入是否是email类型，当然不能只依赖前端的校验，后端也得有相应的校验 
@@ -63,7 +63,7 @@
     ````
     
 14. **Required属性**  
-  required属性定义了一个input是否是必须的，你可以像下面这样声明    
+  required属性定义了一个input是否是必选的，你可以像下面这样声明    
   `<input type=”text” name=”someInput” required>`  
   或者 
   `<input type=”text” name=”someInput” required=”required”> `
