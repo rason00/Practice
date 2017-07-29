@@ -1,4 +1,4 @@
-# Html和css
+# Html和Css
 
 ### 1.XHTML和HTML有什么区别
 > HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言  
