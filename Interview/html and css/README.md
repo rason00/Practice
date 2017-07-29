@@ -202,12 +202,12 @@
 > 首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。  
 > 接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。  
 > css  
->     `.bb{  
->        background-color:#f1ee18;/*所有识别*/  
->       .background-color:#00deff\9; /*IE6、7、8识别*/  
->       +background-color:#a200ff;/*IE6、7识别*/  
->       _background-color:#1e0bd1;/*IE6识别*/  
->     }`  
+> .bb{  
+> background-color:#f1ee18;/*所有识别*/  
+> .background-color:#00deff\9; /*IE6、7、8识别*/  
+> +background-color:#a200ff;/*IE6、7识别*/  
+> _background-color:#1e0bd1;/*IE6识别*/  
+> }
 
 ### 27.display:none和visibility:hidden的区别？
 > display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。  
