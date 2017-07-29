@@ -99,17 +99,12 @@ js
 > (6)使用JavaScript和DOM实现局部刷新.  
 
     var xmlHttp = new XMLHttpRequest();
-
     xmlHttp.open('GET','demo.php','true');
-
     xmlHttp.send()
-
     xmlHttp.onreadystatechange = function(){
-
         if(xmlHttp.readyState === 4 & xmlHttp.status === 200){
-
+            ......
         }
-
     }
 
 ### 16.document.write()的用法
@@ -242,6 +237,7 @@ js
 > （2）所有小于"基准"的元素，都移到"基准"的左边；所有大于"基准"的元素，都移到"基准"的右边。  
 > （3）对"基准"左边和右边的两个子集，不断重复第一步和第二步，直到所有子集只剩下一个元素为止。  
 > 参考代码:  
+
     var quickSort = function(arr) {
         if (arr.length <= 1) { return arr; }
 　　    var pivotIndex = Math.floor(arr.length / 2);
@@ -255,7 +251,7 @@ js
 　　　　　　    right.push(arr[i]);
 　　　　    }
 　　    }
-　　return quickSort(left).concat([pivot], quickSort(right));
+        return quickSort(left).concat([pivot], quickSort(right));
     };
 
 ### 34.JavaScript实现二分法查找
@@ -264,6 +260,7 @@ js
 > （2）如果目标元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半区域查找，然后重复第一步的操作。  
 > （3）如果某一步数组为空，则表示找不到目标元素。  
 > 参考代码:  
+
     // 非递归算法
         function binary_search(arr, key) {
             var low = 0,
