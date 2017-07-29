@@ -195,7 +195,7 @@
 > 3.IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。  
 > 4.浮动ie产生的双倍距离（IE6双边距问题：在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。）  
 > 5.#box{ float:left; width:10px; margin:0 0 0 100px;}  
-> 6.这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入
+> 6.这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入  
 > 7._display:inline;将其转化为行内属性。(这个符号只有ie6会识别)  
 
 > 8.渐进识别的方式，从总体中逐渐排除局部。  
