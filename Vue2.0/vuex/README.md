@@ -73,7 +73,7 @@ export default new Vuex.Store({
   }
 </script>
 ```
-# Mutations修改状态
+## Mutations修改状态
 
 更改 Vuex 的 store 中的状态的唯一方法是提交 [mutation](https://vuex.vuejs.org/zh-cn/mutations.html),我感觉 mutation 像是 vue 中的 methods 方法或者叫事件。
 
