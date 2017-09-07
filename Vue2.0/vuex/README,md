@@ -1,4 +1,4 @@
-#vuex状态管理
+# vuex状态管理
 ## 安装与引入
 ### 1.安装
 > npm install vuex --save
