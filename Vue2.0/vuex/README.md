@@ -245,6 +245,8 @@ const actions = {
   }
 }
 ```
+> context：上下文对象，可以理解为store本身。  
+> {commit}：直接把commit对象传递进去，更容易理解为直接调用mutations里的方法。
 ### 2.同理在`export default`加入引用
 ```
 export default new Vuex.Store({
