@@ -111,13 +111,13 @@ var messageAsBoolean = Boolean(message);
 
 可以对任何数据类型的值调用 `Boolean()` 函数，而且总会返回一个 `boolean` 值。至于返回的这个值是 `true` 还是 `false` 。取决于要转换值的数据类型及其实际值。下表给出转换规则：
 
-  数据类型  | 转换为 true 值 | 转换为 false 值  
-    -----  |  ------------  | ------------- 
-  boolean  |  true          | false         
-  string   |  任何非空字符串 | "" (空字符串)    
-  number   |  任何非零数字值（包括无穷大）  | 0和NaN
-  objert   |  任何对象      | null  
-  undefined | n/a           | undefined 
+|  数据类型  | 转换为 true 值               | 转换为 false 值  |
+|  -------  |  :-------------------------: | -------------:  |
+|  boolean  |  true                        | false           |
+|  string   |  任何非空字符串               | "" (空字符串)    |
+|  number   |  任何非零数字值（包括无穷大）  | 0和NaN           |
+|  objert   |  任何对象                     | null            |
+|  undefined | n/a                         | undefined       |
 
 这些转换规则对理解流控制语句（如 `if` 语句）自动执行相应的 `boolean` 转换非常重要，如下代码：
 ```
