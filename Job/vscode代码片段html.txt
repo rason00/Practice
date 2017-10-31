@@ -1,0 +1,53 @@
+"生成div": {
+
+  "prefix": "dc",
+
+  "body": [
+
+    "<div class='$1'>",
+
+    "  $2",
+
+    "</div>"
+
+  ],
+
+  "description": "生成带class的div"
+
+},
+
+"生成ulli": {
+
+  "prefix": "ull",
+
+  "body": [
+
+    "<ul>",
+
+    "  <li>$1<li>",
+
+    "</ul>"
+
+  ],
+
+  "description": "生成带ul+li"
+
+},
+
+"生成ullia": {
+
+  "prefix": "ulla",
+
+  "body": [
+
+    "<ul>",
+
+    "  <li><a href=''>$1</a><li>",
+
+    "</ul>"
+
+  ],
+
+  "description": "生成带ul+li+a"
+
+}
