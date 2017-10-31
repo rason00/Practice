@@ -1,0 +1,40 @@
+"Print to console": {
+		"prefix": "clog",
+		"body": [
+			"console.log('$1');"
+		],
+		"description": "Log output to console"
+	},
+	"sbanner的js": {
+		"prefix": "swjs",
+		"body": [
+			"var mySwiper = new Swiper('.$1', {",
+			"  loop: true, // 循环",
+			"  observer: true, // 修改swiper自己或子元素时，自动初始化swiper",
+			"  observeParents: true, // 修改swiper的父元素时，自动初始化swiper",
+			"  paginationClickable: true, // 分页器是否可点",
+			"  autoplay: 3000, // 自动轮播时间",
+			"  autoplayDisableOnInteraction: false, // 用户操作swiper之后，是否禁止autoplay",
+			"  // 如果需要前进后退按钮",
+			"  nextButton: '.swiper-button-next',",
+			"  prevButton: '.swiper-button-prev',",
+			"  // 如果需要分页器",
+			"  pagination: '.swiper-pagination'",
+			"});"
+		],
+		"description": "sbanner的js"
+	},
+	"获取屏幕高度": {
+		"prefix": "lwh",
+		"body": [
+			"let wHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;"
+		],
+		"description": "获取屏幕高度"
+	},
+	"获取屏幕宽度": {
+		"prefix": "lww",
+		"body": [
+			"let wWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;"
+		],
+		"description": "获取屏幕段杜"
+	}
