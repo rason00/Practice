@@ -8,7 +8,7 @@
 	"sbanner的js": {
 		"prefix": "swjs",
 		"body": [
-			"var mySwiper = new Swiper('.$1', {",
+			"let mySwiper = new Swiper('.$1', {",
 			"  loop: true, // 循环",
 			"  observer: true, // 修改swiper自己或子元素时，自动初始化swiper",
 			"  observeParents: true, // 修改swiper的父元素时，自动初始化swiper",
