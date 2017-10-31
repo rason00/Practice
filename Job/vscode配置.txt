@@ -1,80 +1,41 @@
-// ´°¿ÚÊ§È¥½¹µã×Ô¶¯±£´æ
-    
+// çª—å£å¤±å»ç„¦ç‚¹è‡ªåŠ¨ä¿å­˜
 "files.autoSave": "onFocusChange",
-    
-// ±à¼­Õ³Ìù×Ô¶¯¸ñÊ½»¯
-    
+// ç¼–è¾‘ç²˜è´´è‡ªåŠ¨æ ¼å¼åŒ–
 "editor.formatOnPaste": true,
-    
-// ¿ØÖÆ×ÖÌåÏµÁĞ¡£
-    
+// æ§åˆ¶å­—ä½“ç³»åˆ—ã€‚
 "editor.fontFamily": "pingfang,Menlo, Monaco, 'Courier New', monospace",
-    
-// ×ÖÌå´óĞ¡
-    
+// å­—ä½“å¤§å°
 "editor.fontSize": 16,
-    
-// ĞĞ¸ß
-    
+// è¡Œé«˜
 "editor.lineHeight": 20,
-    
-// Í¨¹ıÊ¹ÓÃÊó±ê¹öÂÖÍ¬Ê±°´×¡ Ctrl ¿ÉËõ·Å±à¼­Æ÷µÄ×ÖÌå
-    
+// é€šè¿‡ä½¿ç”¨é¼ æ ‡æ»šè½®åŒæ—¶æŒ‰ä½ Ctrl å¯ç¼©æ”¾ç¼–è¾‘å™¨çš„å­—ä½“
 "editor.mouseWheelZoom": false,
-    
-// ĞĞÌ«³¤×Ô¶¯»»ĞĞ
-    
+// è¡Œå¤ªé•¿è‡ªåŠ¨æ¢è¡Œ
 "editor.wordWrap": "on",
-    
-// Ö÷Ìâ
-    
-"workbench.colorTheme": "Monokai",
-    
-"workbench.iconTheme": "vs-seti",
-    
-// eslintÉèÖÃ
-    
+// ä¸»é¢˜
+// "workbench.colorTheme": "Monokai",
+// "workbench.iconTheme": "vs-seti",
+// eslintè®¾ç½®
 "eslint.validate": [
-        
   "javascript",
-        
   "javascriptreact",
-        
   "html",
-        
   "vue",
-        
   {            
     "language": "vue",
-            
     "autoFix": true
-        
   }
-    
 ],
-    
-// ±£´æ×Ô¶¯ĞŞ¸´
-    
+// ä¿å­˜è‡ªåŠ¨ä¿®å¤
 "eslint.autoFixOnSave": true,
-    
-// tabËø½ô
-    
+// tabé”ç´§
 "editor.tabSize": 2,
-    
-// ±£´æ×Ô¶¯»¯
-    
+// ä¿å­˜è‡ªåŠ¨åŒ–
 "editor.formatOnSave": true,
-    
-// ¿Õ¸ñ±ä³É......
-    
+// ç©ºæ ¼å˜æˆ......
 "editor.renderWhitespace": "all",
-    
 "window.zoomLevel": 0,
-    
-// ÔÚÖÆ±íÎ»ºó²åÈëºÍÉ¾³ı¿Õ¸ñ
-    
+// åœ¨åˆ¶è¡¨ä½åæ’å…¥å’Œåˆ é™¤ç©ºæ ¼
 "editor.useTabStops": true,
-    
-// É¾³ıÎ²Ëæ×Ô¶¯²åÈëµÄ¿Õ¸ñ
-    
+// åˆ é™¤å°¾éšè‡ªåŠ¨æ’å…¥çš„ç©ºæ ¼
 "editor.trimAutoWhitespace": true
