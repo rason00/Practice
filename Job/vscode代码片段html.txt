@@ -1,27 +1,42 @@
 "生成div": {
-  "prefix": "dc",
-  "body": [
-    "<div class='$1'>",
-    "  $2",
-    "</div>"
-  ],
-  "description": "生成带class的div"
-},
-"生成ulli": {
-  "prefix": "ull",
-  "body": [
-    "<ul>",
-    "  <li>$1<li>",
-    "</ul>"
-  ],
-  "description": "生成带ul+li"
-},
-"生成ullia": {
-  "prefix": "ulla",
-  "body": [
-    "<ul>",
-    "  <li><a href=''>$1</a><li>",
-    "</ul>"
-  ],
-  "description": "生成带ul+li+a"
-}
+		"prefix": "divc",
+		"body": [
+			"<div class='$1'>",
+			"  $2",
+			"</div>"
+		],
+		"description": "生成带class的div"
+	},
+	"生成ulli": {
+		"prefix": "ull",
+		"body": [
+			"<ul>",
+			"  <li>$1<li>",
+			"</ul>"
+		],
+		"description": "生成带ul+li"
+	},
+	"生成ullia": {
+		"prefix": "ulla",
+		"body": [
+			"<ul>",
+			"  <li><a href=''>$1</a><li>",
+			"</ul>"
+		],
+		"description": "生成带ul+li+a"
+	},
+	"生成swiperbanner": {
+		"prefix": "sbanner",
+		"body": [
+			"<div class='swiper-container banner'>",
+			"  <div class='swiper-wrapper'>",
+			"    <div class='swiper-slide'><img src='$1'></div>",
+			"</div>",
+			"<!-- 分页器 -->",
+			"<div class='swiper-pagination'></div>",
+			"<!-- 按钮 -->",
+			"<div class='swiper-button-next'></div>",
+			"<div class='swiper-button-prev'></div>"
+		],
+		"description": "生成带swiperbanner"
+	}
