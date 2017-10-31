@@ -1,53 +1,27 @@
-"生成div": {
-
+"鐢熸垚div": {
   "prefix": "dc",
-
   "body": [
-
     "<div class='$1'>",
-
     "  $2",
-
     "</div>"
-
   ],
-
-  "description": "生成带class的div"
-
+  "description": "鐢熸垚甯lass鐨刣iv"
 },
-
-"生成ulli": {
-
+"鐢熸垚ulli": {
   "prefix": "ull",
-
   "body": [
-
     "<ul>",
-
     "  <li>$1<li>",
-
     "</ul>"
-
   ],
-
-  "description": "生成带ul+li"
-
+  "description": "鐢熸垚甯l+li"
 },
-
-"生成ullia": {
-
+"鐢熸垚ullia": {
   "prefix": "ulla",
-
   "body": [
-
     "<ul>",
-
     "  <li><a href=''>$1</a><li>",
-
     "</ul>"
-
   ],
-
-  "description": "生成带ul+li+a"
-
+  "description": "鐢熸垚甯l+li+a"
 }
