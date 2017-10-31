@@ -1,4 +1,4 @@
-"生成div": {
+	"生成div": {
 		"prefix": "divc",
 		"body": [
 			"<div class='$1'>",
