@@ -178,7 +178,7 @@
 			"      {",
 			"        test: /\\.scss$/,",
 			"        use: extractTextPlugin.extract({",
-			"        use: ['css-loader','sass-loader',''postcss-loader'],",
+			"        use: ['css-loader','sass-loader','postcss-loader'],",
 			"          fallback: 'style-loader'",
 			"        })",
 			"      },",
