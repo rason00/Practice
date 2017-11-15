@@ -31,7 +31,7 @@ module.exports = {
     new uglify(),
     // 打包html
     new HtmlWebpackPlugin({
-      // title: '南航e行功能秘籍h5',
+      // title: '',
       // filename: 'index.html',
       // 对html文件进行压缩
       minify: {
