@@ -86,11 +86,11 @@ module.exports = {
         // css分离
         use: extractTextPlugin.extract({
           fallback: 'style-loader',
-          publicPath: '../',
           use: [
             { loader: 'css-loader', options: { importLoaders: 1 }},
             'postcss-loader',
-          ]
+          ],
+          publicPath: '../',
         })
       },
       // 加载css图片
@@ -115,8 +115,12 @@ module.exports = {
       {
         test: /\.scss$/,
         use: extractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader', 'postcss-loader'],
           fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader',
+            'sass-loader',
+          ],
           publicPath: '../',
         })
       },
