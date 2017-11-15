@@ -87,6 +87,7 @@ module.exports = {
         use: extractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
+            // importLoaders: 1 引入的css也可以配合postcss加上前缀
             { loader: 'css-loader', options: { importLoaders: 1 }},
             'postcss-loader',
           ],
@@ -117,6 +118,7 @@ module.exports = {
         use: extractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
+            // importLoaders: 1 引入的css也可以配合postcss加上前缀
             { loader: 'css-loader', options: { importLoaders: 1 } },
             'postcss-loader',
             'sass-loader',
