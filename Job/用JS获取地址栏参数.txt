@@ -1,0 +1,29 @@
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+ 
+// 调用方法
+alert(GetQueryString("参数名1"));
+
+下面举一个例子:
+
+若地址栏URL为：abc.html?id=123&url=http://www.maidq.com
+
+那么，但你用上面的方法去调用：alert(GetQueryString("url"));
+
+则会弹出一个对话框：内容就是 http://www.maidq.com
+
+当然如果你没有传参数的话，比如你的地址是 abc.html 后面没有参数，那强行输出调用结果有的时候会报错：
+
+所以我们要加一个判断 ，判断我们请求的参数是否为空，首先把值赋给一个变量：
+
+var myurl=GetQueryString("url");
+if(myurl !=null && myurl.toString().length>1)
+{
+   alert(GetQueryString("url"));
+}
+
+这样就不会报错了！
