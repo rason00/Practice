@@ -1,0 +1,7 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+它的原理是使用用户自定义颜色值覆盖原先的高亮色
+
+用户可以自定义取值，当取值transparent时将不会出现背景色，等同于阻止了默认高亮色显示事件。
