@@ -1,0 +1,13 @@
+只要在样式里面加一句去掉css去掉iPhone、iPad的默认按钮样式就可以了！~
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+
+-webkit-appearance: none;
+
+}
+
+textarea {  -webkit-appearance: none;}   
+
+如果还有圆角的问题，
+
+.button{ border-radius: 0; } 
