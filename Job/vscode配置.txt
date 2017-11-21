@@ -1,41 +1,82 @@
-// 窗口失去焦点自动保存
-"files.autoSave": "onFocusChange",
-// 编辑粘贴自动格式化
-"editor.formatOnPaste": true,
-// 控制字体系列。
-"editor.fontFamily": "pingfang,Menlo, Monaco, 'Courier New', monospace",
-// 字体大小
-"editor.fontSize": 16,
-// 行高
-"editor.lineHeight": 20,
-// 通过使用鼠标滚轮同时按住 Ctrl 可缩放编辑器的字体
-"editor.mouseWheelZoom": false,
-// 行太长自动换行
-"editor.wordWrap": "on",
-// 主题
-// "workbench.colorTheme": "Monokai",
-// "workbench.iconTheme": "vs-seti",
-// eslint设置
-"eslint.validate": [
-  "javascript",
-  "javascriptreact",
-  "html",
-  "vue",
-  {            
-    "language": "vue",
-    "autoFix": true
-  }
-],
-// 保存自动修复
-"eslint.autoFixOnSave": true,
-// tab锁紧
-"editor.tabSize": 2,
-// 保存自动化
-"editor.formatOnSave": true,
-// 空格变成......
-"editor.renderWhitespace": "all",
-"window.zoomLevel": 0,
-// 在制表位后插入和删除空格
-"editor.useTabStops": true,
-// 删除尾随自动插入的空格
-"editor.trimAutoWhitespace": true
+{
+    // tab占几个空格
+    "editor.tabSize": 2,
+    // 控制是否显示 minimap
+    "editor.minimap.enabled": true,
+    // vue配置
+    "emmet.syntaxProfiles": {
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "vetur.validation.template": false,
+    // 控制工作台中活动栏的可见性。
+    "workbench.activityBar.visible": false,
+    // 控制边栏的位置。它可显示在工作台的左侧或右侧。
+    "workbench.sideBar.location": "right",
+    // 控制工作台底部状态栏的可见性。
+    "workbench.statusBar.visible": false,
+    // 窗口失去焦点自动保存
+    // "files.autoSave": "onFocusChange",
+    // 编辑粘贴自动格式化
+    "editor.formatOnPaste": true,
+    // 控制字体系列。
+    "editor.fontFamily": "pingfang,Menlo, Monaco, 'Courier New', monospace",
+    // 字体大小
+    "editor.fontSize": 16,
+    // 行高
+    "editor.lineHeight": 20,
+    // 通过使用鼠标滚轮同时按住 Ctrl 可缩放编辑器的字体
+    "editor.mouseWheelZoom": false,
+    // 行太长自动换行
+    "editor.wordWrap": "on",
+    // 主题
+    // "workbench.colorTheme": "Monokai",
+    // "workbench.iconTheme": "vs-seti",
+    // eslint设置
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        "vue",
+        {
+            "language": "vue",
+            "autoFix": true
+        }
+    ],
+    // 保存自动修复
+    "eslint.autoFixOnSave": true,
+    // tab锁紧
+    "editor.tabSize": 2,
+    // 保存自动代码格式化
+    // "editor.formatOnSave": true,
+    // 空格变成......
+    "editor.renderWhitespace": "all",
+    "window.zoomLevel": 0,
+    // 在制表位后插入和删除空格
+    "editor.useTabStops": true,
+    // 删除尾随自动插入的空格
+    "editor.trimAutoWhitespace": true,
+    "beautify.language": {
+        "js": {
+            "type": [
+                "javascript",
+                "json"
+            ],
+            "filename": [
+                ".jshintrc",
+                ".jsbeautify"
+            ]
+        },
+        "css": [
+            "css",
+            "scss"
+        ],
+        "html": [
+            "htm",
+            "html",
+            "vue"
+        ]
+    },
+    "fileheader.Author": "Rason",
+    "fileheader.LastModifiedBy": "Rason"
+}
