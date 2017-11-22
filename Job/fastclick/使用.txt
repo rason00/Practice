@@ -1,0 +1,14 @@
+ 使用方法： 
+window.addEventListener('load', function() {
+  FastClick.attach(document.body);
+}, false);
+环境内有jquery的情况下，使用方法：
+$(function() {
+  FastClick.attach(document.body);
+});
+
+webpack:
+main.js里面配置(js入口)：
+（需要安装依赖cnpm install fastclick --save）
+const FastClick = require('fastclick')
+FastClick.attach(document.body) //去掉点击延迟300秒
