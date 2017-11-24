@@ -1,0 +1,4 @@
+
+var preHandler = function(e){e.preventDefault();}
+document.addEventListener('touchmove', preHandler, false);
+document.removeEventListener('touchmove', preHandler, false);
