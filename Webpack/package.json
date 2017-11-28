@@ -1,7 +1,7 @@
 {
   "name": "webpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "It's just a basic version",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "build:prod": "webpack --progress --config webpack.prod.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rason",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.6",
