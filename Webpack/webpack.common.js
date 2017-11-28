@@ -31,7 +31,7 @@ module.exports = {
   plugins: [
     // 静态资源搬运
     // new copyWebpackPlugin([{
-    //   from: __dirname + './src/jss',
+    //   from: './src/js',
     //   to: './js'
     // }]),
     // 压缩代码
