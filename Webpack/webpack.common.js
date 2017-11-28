@@ -12,6 +12,8 @@ const extractTextPlugin = require('extract-text-webpack-plugin');
 // 消除css
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
+// 静态资源搬运
+// const copyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   // 入口
@@ -27,6 +29,11 @@ module.exports = {
   },
   // 插件
   plugins: [
+    // 静态资源搬运
+    // new copyWebpackPlugin([{
+    //   from: __dirname + './src/jss',
+    //   to: './js'
+    // }]),
     // 压缩代码
     new uglify(),
     // 打包html
@@ -159,6 +166,7 @@ module.exports = {
  * "dev":"set type=dev&webapck",
  * 代码压缩：cnpm install uglifyjs-webpack-plugin --save-dev
  * 暴露jq： cnpm install expose - loader--save - dev
+ * 静态资本搬运：cnpm install --save-dev copy-webpack-plugin
  */
 
  /**
