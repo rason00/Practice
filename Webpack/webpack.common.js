@@ -13,14 +13,14 @@ const extractTextPlugin = require('extract-text-webpack-plugin');
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
 // 静态资源搬运
-// const copyWebpackPlugin = require("copy-webpack-plugin");
+const copyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   // 入口
   entry: {
     // './js/index': path.resolve(__dirname, 'src/index.js'),
     app : './src/index.js',
-    // jquery: 'jquery',
+    jquery: 'jquery',
   },
   // 出口
   output: {
@@ -30,26 +30,44 @@ module.exports = {
   // 插件
   plugins: [
     // 静态资源搬运
-    // new copyWebpackPlugin([{
-    //   from: './src/js',
-    //   to: './js'
-    // }]),
+    new copyWebpackPlugin([{
+      from: './src/static',
+      to: './static'
+    }]),
     // 压缩代码
     new uglify(),
     // 打包html
     new HtmlWebpackPlugin({
+      // 对应入口文件名
+      // chunks: ['jquery', 'app'],
+      // html的title
       // title: '',
+      // 生成 html 文件的文件名。默认为 index.html
       // filename: 'index.html',
-      // 对html文件进行压缩
+      // script标签位于html文件的 body 底部
+      inject: true,
       minify: {
+        // 清除html注释
+        removeComments: true,
+        // 压缩html
+        collapseWhitespace: true,
         // 是否去掉属性的双引号
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
+        // 省略布尔属性的值 <input checked="true"/> ==> <input />
+        collapseBooleanAttributes: true,
+        // 删除所有空格作属性值 <input id="" /> ==> <input />
+        removeEmptyAttributes: true,
+        // 删除<script>的type="text/javascript"
+        removeScriptTypeAttributes: true,
+        // 删除<style>和<link>的type="text/css"
+        removeStyleLinkTypeAttributes: true,
       },
+      // dependency 按照不同文件的依赖关系来排序。
+      chunksSortMode: 'dependency',
       // 避免缓存JS
       hash: true,
       // 要打包的html模版路径和文件名称
       template: './src/index.html',
-      inject: true,
     }),
     // css分离
     new extractTextPlugin('css/[name].[hash:8].css'),
@@ -65,10 +83,10 @@ module.exports = {
     // 清理dist
     new CleanWebpackPlugin(['dist']),
     // 抬头文件声明
-    new webpack.BannerPlugin('负责本内容代码者：Rason'),
+    new webpack.BannerPlugin('本内容代码编写者：Rason'),
     // 抽离第三方插件
     new webpack.optimize.CommonsChunkPlugin({
-      //name对应入口文件中的名字，我们起的是jQuery
+      //name对应入口文件中的名字，这里起的是jQuery
       name: ['jquery'],
       //把文件打包到哪里，是一个路径
       filename: 'js/[name].js',
@@ -107,8 +125,8 @@ module.exports = {
         use: [{
           loader: 'url-loader?name=img/[hash:8].[name].[ext]',
           options: {
-            // 把小于5000B的文件打成Base64的格式，写入JS
-            limit: 5,
+            // 把小于10000B的文件打成Base64的格式，写入JS
+            limit: 10000,
             // 图片分离的路径
             outputPath: 'images/',
           }
