@@ -1,9 +1,7 @@
 	"生成div": {
 		"prefix": "divc",
 		"body": [
-			"<div class='$1'>",
-			"  $2",
-			"</div>"
+			"<div class='$1'>$2</div>"
 		],
 		"description": "生成带class的div"
 	},
@@ -11,7 +9,7 @@
 		"prefix": "ull",
 		"body": [
 			"<ul>",
-			"  <li>$1<li>",
+			"  <li>$1</li>",
 			"</ul>"
 		],
 		"description": "生成带ul+li"
@@ -20,7 +18,7 @@
 		"prefix": "ulla",
 		"body": [
 			"<ul>",
-			"  <li><a href=''>$1</a><li>",
+			"  <li><a href=''>$1</a></li>",
 			"</ul>"
 		],
 		"description": "生成带ul+li+a"
@@ -31,6 +29,7 @@
 			"<div class='swiper-container banner'>",
 			"  <div class='swiper-wrapper'>",
 			"    <div class='swiper-slide'><img src='$1'></div>",
+			"  </div>",
 			"</div>",
 			"<!-- 分页器 -->",
 			"<div class='swiper-pagination'></div>",
@@ -110,3 +109,4 @@
 		],
 		"description": "生成移动端head配置"
 	}
+}
