@@ -1,0 +1,5 @@
+function fun_tu_code(){
+        var aa = Math.random()*10;
+        var path = "http://www.sgmw.com.cn/activities/20171201/ashx/ImgValidCode.ashx?tu="+aa;
+        $(".tu_titjs>img").attr("src",path);
+      };
