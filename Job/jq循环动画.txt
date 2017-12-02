@@ -1,0 +1,9 @@
+    var css = {left:'500px'};  
+    $('.arrow').animate(css,300,rowBack);  
+    function rowBack(){  
+        if(css.left==='50px')  
+            css.left='500px';  
+        else if(css.left==='500px')  
+            css.left='50px';  
+        $('.arrow').animate(css,300,rowBack);  
+    }  
