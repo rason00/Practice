@@ -85,8 +85,8 @@
 		],
 		"description": "commonjs开头写法"
 	},
-	"indexjs代码": {
-		"prefix": "indexjs",
+	"cindexjs代码": {
+		"prefix": "cindexjs",
 		"body": [
 			"function component() {",
 			"  var element = document.createElement('div');//创建一个div",
