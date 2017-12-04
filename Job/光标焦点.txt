@@ -1,0 +1,4 @@
+ var cursorFocus = document.getElementById("");//使用id
+  cursorFocus.focus();
+
+  // $("...").focus();//jq方法不兼容360浏览器，建议使用上面的方法
