@@ -1,0 +1,30 @@
+var $video = document.getElementById('mAudio');
+// var music = document.getElementById('music2');
+
+function abc() {
+  if ($video.paused) {
+    $video.play();
+    var ev = function () {
+      document.removeEventListener('touchstart', ev, true);
+      if ($video.paused) {
+        $video.play();
+      }
+    }
+    if (/MicroMessenger/i.test(navigator.userAgent)) {
+      if (window.WeixinJSBridge) {
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+          $video.play();
+
+        });
+      } else {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            $video.play();
+          });
+        }, false);
+      }
+    } else {
+      document.addEventListener('touchstart', ev, true);
+    }
+  }
+}
