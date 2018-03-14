@@ -95,3 +95,4 @@ let age = 25;
 const message = "Goodbye!";
 const age = 30;
 ```
+> 以上笔记出自 阮一峰 ECMAScript 6 入门
