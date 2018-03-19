@@ -2,7 +2,7 @@
 
 ```Git
 git clone xxx          // 克隆库
-git touch xxx          // 新建xxx文件
+touch xxx              // 新建xxx文件
 git rm xxx             // 删除xxx文件
 git status             // 查看状态
 git add -A             // 提交所有变化到缓存区
