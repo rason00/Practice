@@ -1,6 +1,6 @@
 # Git
 
-```Git
+```
 git clone xxx                    // 克隆库
 mkdir xxx                        // 新建xxx文件夹
 touch xxx                        // 新建xxx文件
