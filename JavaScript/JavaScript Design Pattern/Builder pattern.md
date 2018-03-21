@@ -105,13 +105,13 @@ var Person = function(name, work) {
 // 使用
 var person = new Person('xiao ming', 'code');
 
-console.log(person.skill);				// 保密
-console.log(person.name.FirstName);		// xiao
-console.log(person.work.work);			// 工程师
-console.log(person.work.workDescript);	// 每天沉迷编程
+console.log(person.skill);              // 保密
+console.log(person.name.FirstName);     // xiao
+console.log(person.work.work);          // 工程师
+console.log(person.work.workDescript);  // 每天沉迷编程
 
 person.work.changeDescript('更改描述');
-console.log(person.work.workDescript);	// 更改描述
+console.log(person.work.workDescript);  // 更改描述
 ```
 
 **<u>这种方式对于整体对象类的拆分无形中增加了结构的复杂性，因此如果对象颗粒堵很小，或者模块间的复用率很低并且变动不大，最好还是创建整体对象。</u>**
