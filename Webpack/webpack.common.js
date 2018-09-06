@@ -1,194 +1,231 @@
-/* 公共配置 */
 const path = require('path');
 const webpack = require('webpack');
-// 打包html
+
+const fs = require('fs');
+
+// 生成html
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 清理dist
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// 压缩JS代码
-const uglify = require('uglifyjs-webpack-plugin');
-// css分离
-const extractTextPlugin = require('extract-text-webpack-plugin');
+// 分离css
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // 消除css
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
-// 静态资源搬运
+// 全局资源搬运
 const copyWebpackPlugin = require("copy-webpack-plugin");
 
-module.exports = {
+
+// 文件夹信息
+function readFileList(thePath, filesList) {
+  let files = fs.readdirSync(thePath); // 返回一个包含“指定目录下所有文件名称”的数组对象
+  files.forEach(function (itm, index) {
+    let stat = fs.statSync(thePath + itm); // 获取文件或者文件夹信息
+    if (stat.isDirectory()) { // 是否是文件夹
+      //递归读取文件
+      readFileList(thePath + itm + "/", filesList)
+    } else {
+      let data = path.parse(thePath + itm)
+      filesList[data.name] = thePath + itm
+    }
+
+  })
+}
+
+// 获取文件列表
+function getFileList(thePath) {
+  let filesList = {};
+  readFileList(thePath, filesList);
+  return filesList;
+}
+
+// 动态入口
+// let theEntry = JSON.stringify(getFileList('./src/js/'));
+let theEntry = getFileList('./src/js/');
+
+let config = {
   // 入口
-  entry: {
-    // './js/index': path.resolve(__dirname, 'src/index.js'),
-    app : './src/index.js',
-    jquery: 'jquery',
-  },
+  // entry: {
+  //   app: './src/js/index.js',
+  // },
+  entry: theEntry,
   // 出口
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // publicPath: './'
+    filename: 'js/[name].js',
+  },
+  // 提取js common 可改名字
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        // 注意: priority属性
+        // 其次: 打包业务中公共代码
+        // common: {
+        //   name: "common",
+        //   chunks: "all",
+        //   minSize: 1,
+        //   priority: 0
+        // },
+        // 首先: 打包node_modules中的文件
+        vendor: {
+          name: "vendor",
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "all",
+          priority: 10
+        }
+      }
+    }
   },
   // 插件
   plugins: [
-    // 静态资源搬运
-    new copyWebpackPlugin([{
-      from: './src/static',
-      to: './static'
-    }]),
-    // 压缩代码
-    new uglify(),
-    // 打包html
-    new HtmlWebpackPlugin({
-      // 对应入口文件名
-      // chunks: ['jquery', 'app'],
-      // html的title
-      // title: '',
-      // 生成 html 文件的文件名。默认为 index.html
-      // filename: 'index.html',
-      // script标签位于html文件的 body 底部
-      inject: true,
-      minify: {
-        // 清除html注释
-        removeComments: true,
-        // 压缩html
-        collapseWhitespace: true,
-        // 是否去掉属性的双引号
-        removeAttributeQuotes: true,
-        // 省略布尔属性的值 <input checked="true"/> ==> <input />
-        collapseBooleanAttributes: true,
-        // 删除所有空格作属性值 <input id="" /> ==> <input />
-        removeEmptyAttributes: true,
-        // 删除<script>的type="text/javascript"
-        removeScriptTypeAttributes: true,
-        // 删除<style>和<link>的type="text/css"
-        removeStyleLinkTypeAttributes: true,
-      },
-      // dependency 按照不同文件的依赖关系来排序。
-      chunksSortMode: 'dependency',
-      // 避免缓存JS
-      hash: true,
-      // 要打包的html模版路径和文件名称
-      template: './src/index.html',
-    }),
-    // css分离
-    new extractTextPlugin('css/[name].[hash:8].css'),
-    // css消除
-    new PurifyCSSPlugin({
-      paths: glob.sync(path.join(__dirname, 'src/*.html')),
-    }),
-    // 引入jq
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
     // 清理dist
     new CleanWebpackPlugin(['dist']),
-    // 抬头文件声明
-    new webpack.BannerPlugin('本内容代码编写者：Rason'),
-    // 抽离第三方插件
-    new webpack.optimize.CommonsChunkPlugin({
-      //name对应入口文件中的名字，这里起的是jQuery
-      name: ['jquery'],
-      //把文件打包到哪里，是一个路径
-      filename: 'js/[name].js',
-      //最小打包的文件模块数，这里直接写2就好
-      minChunks: 2
+    // 生成html
+    // new HtmlWebpackPlugin({
+    //   // 通过 <%= htmlWebpackPlugin.options.title %> 传递参数到html显示
+    //   // title: 'test',
+    //   // 模版路径
+    //   template: './src/page/index.html',
+    //   chunks: ['index', 'vendor']
+    // }),
+    // 分离css
+    new MiniCssExtractPlugin({
+      filename: "css/[name].css",
+      // chunkFilename: "css/[id].css"
     }),
+    // css消除
+    new PurifyCSSPlugin({
+      // paths: glob.sync(path.join(__dirname, 'src/page/*.html')),
+      paths: glob.sync(path.join(__dirname, 'src/page/*.html')),
+    }),
+    // 全局暴露
+    new webpack.ProvidePlugin({
+      $: "jquery"
+    }),
+    // 全局资源搬运
+    new copyWebpackPlugin([{
+      from: './src/assets',
+      to: './assets'
+    }]),
+
   ],
   // 配置
   module: {
     rules: [
-      // 全局暴露jq符号
-      {
-        test: require.resolve('jquery'),
-        use: [{
-          loader: 'expose-loader',
-          options: '$'
-        }]
-      },
-      // 加载css
+      // css
       {
         test: /\.css$/,
-        // css分离
-        use: extractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            // importLoaders: 1 引入的css也可以配合postcss加上前缀
-            { loader: 'css-loader', options: { importLoaders: 1 }},
-            'postcss-loader',
-          ],
-          publicPath: '../',
-        })
-      },
-      // 加载css图片
-      {
-        test: /\.(png|jpg|gif)/,
         use: [{
-          loader: 'url-loader?name=img/[hash:8].[name].[ext]',
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          },
+          "css-loader",
+          "postcss-loader"
+        ]
+      },
+      // 图片
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [{
+          loader: 'file-loader',
           options: {
-            // 把小于10000B的文件打成Base64的格式，写入JS
-            limit: 10000,
-            // 图片分离的路径
-            outputPath: 'images/',
+            name: '[name].[ext]',
+            limit: 5, // 表示小于xxb图片转为base64,大于xxb的是路径
+            outputPath: 'images' //定义输出的图片文件夹
           }
         }]
       },
-      // html图片
+      // html
       {
-        test: /\.(htm|html|ejs)$/i,
-        use: ['html-withimg-loader']
+        test: /\.html$/,
+        use: [{
+          loader: 'html-loader',
+          options: {
+            minimize: true,
+            removeComments: false,
+            collapseWhitespace: false
+          }
+        }],
       },
       // sass
       {
-        test: /\.scss$/,
-        use: extractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            // importLoaders: 1 引入的css也可以配合postcss加上前缀
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            'postcss-loader',
-            'sass-loader',
-          ],
-          publicPath: '../',
-        })
+        test: /\.(sass|scss)$/,
+        use: [
+          // 分离sass
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: "../"
+            }
+          },
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
+        ]
       },
-      // bable
+      // babel
       {
-        test: /\.(jsx|js)$/,
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-        },
-        exclude: /node_modules/
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
-  }
+  },
 };
 
-/**
- * 生产环境：cnpm i --save-dev cross-env
- * 多配置文件：cnpm i --save-dev webpack-merge
- * 本地服务器：cnpm install webpack-dev-server --save-dev
- * （"server": "webpack-dev-server --open"）
- * 加载css：cnpm install style-loader css-loader --save-dev
- * 打包html：cnpm install --save-dev html-webpack-plugin
- * css图片：cnpm install --save-dev file-loader url-loader
- * css分离：cnpm install --save-dev extract-text-webpack-plugin
- * html图片：cnpm install html-withimg-loader --save
- * sass：1，cnpm install --save-dev node-sass 2，cnpm install --save-dev sass-loader
- * css前缀：cnpm install --save-dev postcss-loader autoprefixer
- * （配置文件---postcss.config.js）内容module.exports = {plugins: [require('autoprefixer')]}
- * 消除css：cnpm i -D purifycss-webpack purify-css
- * bable：cnpm install --save-dev babel-core babel-loader babel-preset-env babel-preset-react
- * （配置文件---.babelrc）内容{"presets":["react","env"]}
- * 全局引入jq：cnpm install --save jquery
- * 清理dist文件：cnpm install clean-webpack-plugin --save-dev
- * "dev":"set type=dev&webapck",
- * 代码压缩：cnpm install uglifyjs-webpack-plugin --save-dev
- * 暴露jq： cnpm install expose - loader--save - dev
- * 静态资本搬运：cnpm install --save-dev copy-webpack-plugin
- */
+let theHtml = getFileList('./src/page/')
 
- /**
-  *
-    "build:dev": "webpack-dev-server --open --config webpack.dev.js",
-    "build:prod": "webpack --progress --config webpack.prod.js"
-  */
+for (let key in theHtml) {
+  let theFileName = ''
+  if(key == 'index'){
+    theFileName = './' + key + '.html'
+  }else {
+    theFileName = './page/' + key + '.html'
+  }
+  var conf = {
+    filename: theFileName, //生成的html存放路径，相对于path
+    template: 'src/page/' + key + '.html', //html模板路径
+    inject: false, //js插入的位置，true/'head'/'body'/false
+    minify: {
+      // 清除html注释
+      removeComments: true,
+      // 压缩html
+      collapseWhitespace: true,
+      // 是否去掉属性的双引号
+      removeAttributeQuotes: true,
+      // 省略布尔属性的值 <input checked="true"/> ==> <input />
+      collapseBooleanAttributes: true,
+      // 删除所有空格作属性值 <input id="" /> ==> <input />
+      removeEmptyAttributes: true,
+      // 删除<script>的type="text/javascript"
+      removeScriptTypeAttributes: true,
+      // 删除<style>和<link>的type="text/css"
+      removeStyleLinkTypeAttributes: true,
+    },
+    /*
+     * 压缩这块，调用了html-minify，会导致压缩时候的很多html语法检查问题，
+     * 如在html标签属性上使用{{...}}表达式，所以很多情况下并不需要在此配置压缩项，
+     * 另外，UglifyJsPlugin会在压缩代码的时候连同html一起压缩。
+     * 为避免压缩html，需要在html-loader上配置'html?-minimize'，见loaders中html-loader的配置。
+     */
+    // minify: { //压缩HTML文件
+    //  removeComments: true, //移除HTML中的注释
+    //  collapseWhitespace: false //删除空白符与换行符
+    // }
+  };
+  if (key in config.entry) {
+    conf.inject = 'body';
+    conf.chunks = [key, 'vendor'];
+    conf.hash = true;
+  }
+  config.plugins.push(new HtmlWebpackPlugin(conf));
+}
+
+module.exports = config
