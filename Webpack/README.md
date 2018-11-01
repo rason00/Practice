@@ -29,3 +29,10 @@
 15. 配置多入口多页面
 
 如感兴趣，可到[博客](https://rason00.github.io/2018/09/06/webpack4-%E4%B8%AA%E4%BA%BA%E9%85%8D%E7%BD%AE/)查看配置流程
+
+## 使用
+```diff
+npm i
+npm run dev
+npm run build
+```
